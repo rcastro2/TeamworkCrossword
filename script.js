@@ -53,14 +53,21 @@ directionPointer.addEventListener("click",function(){
         direction = "right";
     }
 })
+let selectedClue;
 document.querySelectorAll(".clues p").forEach(clue => {
     clue.addEventListener("click",function(){
-        let cell = document.getElementById(this.dataset.cell);
+        if(selectedClue && selectedClue.style.backgroundColor != "green"){
+            selectedClue.style.backgroundColor = "white";
+            selectedClue.style.color = "black";
+        }
+        selectedClue = document.getElementById(this.dataset.cell);
         direction = this.dataset.direction;
         directionPointer.innerHTML = (direction == "right" ? "▶":"▼")
-        cell.focus();
-        cell.style.backgroundColor = "yellow";
-        cell.style.color = "black";
+        selectedClue.focus();
+        if(selectedClue.style.backgroundColor != "green"){
+            selectedClue.style.backgroundColor = "yellow";
+            selectedClue.style.color = "black";
+        }
     })
 });
 
