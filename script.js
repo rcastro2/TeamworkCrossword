@@ -32,12 +32,20 @@ for(let r=0; r<24; r++){
   build += "<tr>";
   for(let c=0; c<24; c++){
     let data = solution[r][c];
-    let placeholder = `placeholder='${(data.length > 1)?data.substring(1):''}'`;
+    //Leave placeholder blank for overlay clue numbers method
+    let placeholder = ""; //`placeholder='${(data.length > 1)?data.substring(1):''}'`;
     //Create the boxes for the puzzle
-    let clueNumber = (data.length > 1)?`<span class="tooltiptext">${data.substring(1)}</span>`:"";
-    build += `<td class="tooltip">${clueNumber}<input id="${r}_${c}" class="cell ${( data == ' ')?'empty':''}" ${data == ' '?'disabled':placeholder} maxlength="1"></td>`
+    //Clue numbers as tooltips
+    //let clueNumber = (data.length > 1)?`<span class="tooltiptext">${data.substring(1)}</span>`:"";
+    //Clue numbers as overlays
+    let clueNumber = (data.length > 1)?`<span class="clue-number">${data.substring(1)}</span>`:"";
+    build += `<td><span class="clue-cell">${clueNumber}<input id="${r}_${c}" class="cell ${( data == ' ')?'empty':''}" ${data == ' '?'disabled':placeholder} maxlength="1"></span></td>`
+    
     //Create and plugs the answer in for testing purposes
+    //Tooltip method of clue numbers
     //build += `<td class="tooltip">${clueNumber}<input id="${r}_${c}" class="cell ${( data === ' ')?'empty':''}" ${data != ' '?'value="' + data.substring(0,1) + '"':'disabled'} ${placeholder} maxlength="1"></td>`
+    //Overlay method of clue numbers
+    //build += `<td><span class="clue-cell">${clueNumber}<input id="${r}_${c}" class="cell ${( data === ' ')?'empty':''}" ${data != ' '?'value="' + data.substring(0,1) + '"':'disabled'} maxlength="1"></span></td>`
 
   }
   build += "</tr>";
@@ -79,6 +87,9 @@ document.querySelectorAll(".cell").forEach(cell => {
     cell.addEventListener("keydown", function (e) {
         this.style.backgroundColor = "white";
         this.style.color = "black";
+        if(this.previousElementSibling){
+            this.previousElementSibling.style.color = "black";
+        }
         let [r, c] = this.id.split("_").map(Number);
         e.preventDefault();
         if (e.key == "Backspace") {
@@ -134,6 +145,9 @@ function checkPuzzle(){
             }else if (data != " "){
                 cell.style.backgroundColor = "green"
                 cell.style.color = "white";
+                if(cell.previousElementSibling){
+                    cell.previousElementSibling.style.color = "white";
+                }
             }
         }
     }
