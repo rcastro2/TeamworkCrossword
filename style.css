@@ -24,6 +24,11 @@ table{
   font-size: 18px;
   text-transform: uppercase;
 }
+.cell::placeholder {
+  color: #999999;       
+  font-weight: normal;
+  font-size: 14px;
+}
 
 .empty {
   border: 1px solid white;
