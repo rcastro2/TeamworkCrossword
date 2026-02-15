@@ -27,7 +27,7 @@ const solution = [
 
 const grid = document.getElementById("grid");
 let build = ""
-let direction = "down";
+let direction = "right";
 for(let r=0; r<24; r++){
   build += "<tr>";
   for(let c=0; c<24; c++){
