@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Teamwork Crossword</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<style>
+</style>
+</head>
+<body>
+    <div class="container center">
+        <h1>Teamwork Crosswork Puzzle</h1>
+    </div>
+
+    <div class="container">
+        <div class="container" style="justify-content:right">
+            <table id="grid"></table>
+        </div>
+        <div class="container center" id="direction" style="max-width: 20px;">
+            <span id="directionPointer" style="cursor:pointer">&#x25BC;</span>
+        </div>
+    
+        
+        <div class="clues">
+            <div>Click on clues to jump to the block in the puzzle</div>
+            <button onclick="checkPuzzle()">Check Puzzle</button>
+            <h3>Across</h3>
+            <p data-cell="7_7" data-direction="right"><b>4.</b> Managing tasks, time, and materials in an orderly and efficient way.</p>
+            <p data-cell="10_2" data-direction="right"><b>7.</b> Paying close attention to what someone is saying.</p>
+            <p data-cell="11_14" data-direction="right"><b>9.</b> The ability to guide, motivate, and influence others positively.</p>
+            <p data-cell="13_6" data-direction="right"><b>10.</b> Taking action without being told.</p>
+            <p data-cell="15_2" data-direction="right"><b>11.</b> Being willing to adjust or change when needed.</p>
+            <p data-cell="22_0" data-direction="right"><b>14.</b> Treating others fairly and showing consideration.</p>
+
+            <h3>Down</h3>
+            <p data-cell="0_12" data-direction="down"><b>1.</b> Finding a middle ground where everyone gives a little.</p>
+            <p data-cell="1_15" data-direction="down"><b>2.</b> Taking responsibility for your actions.</p>
+            <p data-cell="7_4" data-direction="down"><b>3.</b> Believing others will do their part honestly.</p>
+            <p data-cell="7_8" data-direction="down"><b>5.</b> Being dependable and consistent.</p>
+            <p data-cell="7_20" data-direction="down"><b>6.</b> Being truthful and trustworthy.</p>
+            <p data-cell="10_18" data-direction="down"><b>8.</b> To guide or direct others toward a goal.</p>
+            <p data-cell="15_7" data-direction="down"><b>12.</b> Acting honestly and having strong moral principles.</p>
+            <p data-cell="15_11" data-direction="down"><b>13.</b> Working together to achieve a common goal.</p>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

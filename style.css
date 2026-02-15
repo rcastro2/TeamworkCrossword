@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+}
+table{
+    border-collapse: collapse;
+}
+.container{
+    display:flex;
+}
+.container div{
+    flex:1;
+    padding:20px;
+}
+.center{
+    justify-content:center;
+    align-items: center;
+}
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.empty {
+  border: 1px solid white;
+}
