@@ -69,6 +69,7 @@ document.querySelectorAll(".cell").forEach(cell => {
     // })
     cell.addEventListener("keydown", function (e) {
         this.style.backgroundColor = "white";
+        this.style.color = "black";
         let [r, c] = this.id.split("_").map(Number);
         e.preventDefault();
         if (e.key == "Backspace") {
