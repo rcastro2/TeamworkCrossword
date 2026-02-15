@@ -32,9 +32,10 @@ for(let r=0; r<24; r++){
   build += "<tr>";
   for(let c=0; c<24; c++){
     let data = solution[r][c];
-    let placeholder = `placeholder='${data.length > 1?data.substring(1):''}'`;
+    let placeholder = `placeholder='${(data.length > 1)?data.substring(1):''}'`;
     //Create the boxes for the puzzle
-    build += `<td><input id="${r}_${c}" class="cell ${( data == ' ')?'empty':''}" ${data == ' '?'disabled':placeholder} maxlength="1"></td>`
+    let clueNumber = (data.length > 1)?`<span class="tooltiptext">${data.substring(1)}</span>`:"";
+    build += `<td class="tooltip">${clueNumber}<input id="${r}_${c}" class="cell ${( data == ' ')?'empty':''}" ${data == ' '?'disabled':placeholder} maxlength="1"></td>`
     //Create and plugs the answer in for testing purposes
     //build += `<td><input id="${r}_${c}" class="cell ${( data === ' ')?'empty':''}" ${data != ' '?'value="' + data.substring(0,1) + '"':'disabled'} ${placeholder} maxlength="1"></td>`
 
@@ -91,7 +92,7 @@ document.querySelectorAll(".cell").forEach(cell => {
             }
         }else{
             let letter = e.key.toUpperCase(); 
-            if (!("A"<=letter && letter <="Z")) return;
+            if (!(65<= e.keyCode && e.keyCode <=91)) return;
 
             this.value = letter;
             
