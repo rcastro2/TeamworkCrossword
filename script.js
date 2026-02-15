@@ -60,6 +60,7 @@ document.querySelectorAll(".clues p").forEach(clue => {
         directionPointer.innerHTML = (direction == "right" ? "▶":"▼")
         cell.focus();
         cell.style.backgroundColor = "yellow";
+        cell.style.color = "black";
     })
 });
 
