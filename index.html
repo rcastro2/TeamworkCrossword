@@ -12,18 +12,22 @@
     <div class="container center">
         <h1>Teamwork Crossword Puzzle</h1>
     </div>
-
     <div class="container">
         <div class="container" style="justify-content:right">
-            <table id="grid"></table>
+            <div>
+                <div style="text-align:center" id="timer">
+                    ⏱ Time: 00:00
+                </div>
+                <table id="grid"></table>
+            </div>
         </div>
-        <div class="container center" id="direction" style="max-width: 20px;">
+        <div class="container center" id="direction" style="max-width: 20px; padding:20px;">
             <span id="directionPointer" style="cursor:pointer">▶</span>
         </div>
     
         
-        <div class="clues">
-            <div>Click on clues to jump to the block in the puzzle</div>
+        <div class="clues" style="padding:20px;">
+            <div>Click on clues to jump to the block in the puzzle. Time starts when you start typing your first word.</div>
             <button onclick="checkPuzzle()">Check Puzzle</button>
             <h3>Across</h3>
             <p data-cell="7_7" data-direction="right"><b>4.</b> Managing tasks, time, and materials in an orderly and efficient way.</p>
@@ -48,6 +52,7 @@
     <div id="winOverlay">
         <div id="winBox">
             <h1>🎉 Puzzle Complete! 🎉</h1>
+            <div id="timeTaken"></div>
             <p>You demonstrated excellent teamwork skills!</p>
             <button onclick="location.reload()">Play Again</button>
         </div>

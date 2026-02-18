@@ -85,6 +85,7 @@ document.querySelectorAll(".cell").forEach(cell => {
     //     console.log(this.id);
     // })
     cell.addEventListener("keydown", function (e) {
+        startTimer();
         this.style.backgroundColor = "white";
         this.style.color = "black";
         if(this.previousElementSibling){
@@ -152,6 +153,8 @@ function checkPuzzle(){
         }
     }
     if(correct){
+        stopTimer();
+        timeTaken.innerHTML = timer.innerHTML
         document.getElementById("winOverlay").classList.add("active");
         launchConfetti();
     }
@@ -169,4 +172,24 @@ function launchConfetti(){
 
         setTimeout(() => confetti.remove(), 5000);
     }
+}
+
+let startTime;
+let timerInterval;
+
+function startTimer() {
+    startTime = Date.now();
+
+    timerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const seconds = String(elapsed % 60).padStart(2, '0');
+
+        document.getElementById('timer').textContent =
+        `⏱ Time: ${minutes}:${seconds}`;
+    }, 1000);
+}
+
+function stopTimer() {
+clearInterval(timerInterval);
 }
