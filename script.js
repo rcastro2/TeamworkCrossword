@@ -85,7 +85,10 @@ document.querySelectorAll(".cell").forEach(cell => {
     //     console.log(this.id);
     // })
     cell.addEventListener("keydown", function (e) {
-        startTimer();
+        if(!puzzleStartered){
+            startTimer();
+            puzzleStartered = true;
+        }
         this.style.backgroundColor = "white";
         this.style.color = "black";
         if(this.previousElementSibling){
@@ -176,6 +179,7 @@ function launchConfetti(){
 
 let startTime;
 let timerInterval;
+let puzzleStartered = false;
 
 function startTimer() {
     startTime = Date.now();
